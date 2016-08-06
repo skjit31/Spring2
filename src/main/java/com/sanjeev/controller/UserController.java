@@ -20,10 +20,10 @@ public class UserController {
 		context = new ClassPathXmlApplicationContext("config.xml");
 	}
 	
-	@Autowired
-	private UserService userService1;
+	/*@Autowired
+	private UserService userService;*/
 
-/*	@RequestMapping("/hello")
+	@RequestMapping("/hello")
 	@ResponseBody
 	public String hello(){
 		 
@@ -40,14 +40,14 @@ public class UserController {
 		 System.out.println("###########address############");
 		 System.out.println(address.toString());
 		return "hello";
-	}*/
+	}
 	
-	@RequestMapping("/request")
+/*	@RequestMapping("/request")
 	@ResponseBody
 	public String requestScope(){
 		 System.out.println("###########userService############");
-		 System.out.println(userService1.toString());
+		 System.out.println(userService.toString());
 		return "request";
-	}
+	}*/
 
 }

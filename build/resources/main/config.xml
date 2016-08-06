@@ -1,38 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	 http://www.springframework.org/schema/beans/spring-beans.xsd
-	 http://www.springframework.org/schema/aop
-   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
-   http://www.springframework.org/schema/mvc
-   http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+	 ">
 
 	<!-- globalSession session request prototype singleton -->
 
-	<bean
+<!-- 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
-	</bean>
+	</bean> -->
 
 
-	<bean id="userService" class="com.sanjeev.service.UserService"
-		scope="session">
+	<bean id="userService" class="com.sanjeev.service.UserService">
 		<property name="name" value="hello ekansh" />
 		<property name="password" value="password" />
 	</bean>
 
-	<bean id="userService1" class="com.sanjeev.service.UserService"
+<!-- 	<bean id="userService1" class="com.sanjeev.service.UserService"
 		scope="request">
 		<constructor-arg>
 		    <value></value>
 		</constructor-arg>
-		<aop:scoped-proxy proxy-target-class="false" />
+		<aop:scoped-proxy proxy-target-class="false" /> 
 
-	</bean>
+	</bean>-->
 
 	<bean id="userDetail" class="com.sanjeev.service.UserDetail">
 		<property name="name" value="my name is lakhan" />
