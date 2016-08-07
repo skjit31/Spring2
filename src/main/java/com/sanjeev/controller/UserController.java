@@ -1,6 +1,7 @@
 package com.sanjeev.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
@@ -21,6 +22,7 @@ public class UserController {
 	}
 	
 	/*@Autowired
+	@Qualifier("userService")
 	private UserService userService;*/
 
 	@RequestMapping("/hello")
@@ -34,11 +36,11 @@ public class UserController {
 		 
 		 UserDetail userDetail=context.getBean("userDetail",UserDetail.class);
 		 System.out.println("###########userDetail############");
-		 System.out.println(service.toString());
+		 System.out.println(userDetail.toString());
 		 
 		 Address address=context.getBean("address",Address.class);
 		 System.out.println("###########address############");
-		 System.out.println(address.toString());
+		 System.out.println(address);
 		return "hello";
 	}
 	

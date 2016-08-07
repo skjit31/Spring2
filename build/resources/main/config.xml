@@ -1,38 +1,65 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
 	 http://www.springframework.org/schema/beans/spring-beans.xsd
-	 ">
+	 http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- <context:annotation-config > <context:component-scan base-package="com.sanjeev"></context:component-scan> -->
 
 	<!-- globalSession session request prototype singleton -->
 
-<!-- 	<bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/WEB-INF/jsp/" />
-		<property name="suffix" value=".jsp" />
-	</bean> -->
+	<!-- <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
+		<property name="prefix" value="/WEB-INF/jsp/" /> <property name="suffix" 
+		value=".jsp" /> </bean> -->
 
 
-	<bean id="userService" class="com.sanjeev.service.UserService">
+	<bean id="userService" class="com.sanjeev.service.UserService"
+		lazy-init="false">
 		<property name="name" value="hello ekansh" />
 		<property name="password" value="password" />
 	</bean>
 
-<!-- 	<bean id="userService1" class="com.sanjeev.service.UserService"
-		scope="request">
-		<constructor-arg>
-		    <value></value>
-		</constructor-arg>
-		<aop:scoped-proxy proxy-target-class="false" /> 
-
-	</bean>-->
+	<!-- <bean id="userService1" class="com.sanjeev.service.UserService" scope="request"> 
+		<constructor-arg> <value></value> </constructor-arg> <aop:scoped-proxy proxy-target-class="false" 
+		/> </bean> -->
 
 	<bean id="userDetail" class="com.sanjeev.service.UserDetail">
 		<property name="name" value="my name is lakhan" />
 		<property name="age" value="27" />
 		<property name="userService">
 			<ref bean="userService" />
+		</property>
+		<property name="phoneNo">
+			<list>
+				<value>1234</value>
+				<value>4567</value>
+				<value>8901</value>
+			</list>
+		</property>
+		<property name="language">
+			<set>
+				<value>HINDI</value>
+				<value>ENGLISH</value>
+				<value>BANGALI</value>
+				<value>SANSKRIT</value>
+			</set>
+		</property>
+		<property name="data">
+			<map>
+				<entry key="age" value="27" />
+				<entry key="sex" value="male" />
+				<entry key="name" value="sanjeev" />
+			</map>
+		</property>
+		<property name="properties">
+			<props>
+				<prop key="port">8080</prop>
+				<prop key="driver">com.mysql.Driver</prop>
+			</props>
 		</property>
 	</bean>
 
@@ -50,5 +77,5 @@
 			<ref bean="userDetail" />
 		</constructor-arg>
 	</bean>
-
 </beans>
+
